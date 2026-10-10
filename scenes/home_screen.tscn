@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bcwptktsc84co"]
+
+[ext_resource type="Texture2D" uid="uid://c2gm26etnsqkt" path="res://assets/play Btn.png" id="1_lapbl"]
+
+[node name="HomeScreen" type="Node2D" unique_id=1878635613]
+
+[node name="Control" type="Control" parent="." unique_id=649088684]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MenuBar" type="MenuBar" parent="Control" unique_id=699113647]
+layout_mode = 0
+offset_right = 453.0
+offset_bottom = 290.0
+
+[node name="Button" type="Button" parent="Control/MenuBar" unique_id=698138413]
+layout_mode = 0
+offset_left = -117.0
+offset_top = 151.0
+offset_right = 92.0
+offset_bottom = 233.0
+icon = ExtResource("1_lapbl")
+expand_icon = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1751743633]
