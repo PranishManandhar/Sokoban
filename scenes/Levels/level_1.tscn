@@ -1,13 +1,13 @@
 [gd_scene format=4 uid="uid://bg3cc33sx2fv6"]
 
-[ext_resource type="Script" uid="uid://c1at3lwx8562" path="res://scenes/main_game.gd" id="1_fcfvj"]
+[ext_resource type="Script" uid="uid://c1at3lwx8562" path="res://scripts/main_game.gd" id="1_fcfvj"]
 [ext_resource type="Texture2D" uid="uid://b2lylnhtvj3da" path="res://assets/Tilemap_color3.png" id="2_pa8r4"]
 [ext_resource type="Texture2D" uid="uid://dq2hsmjsm6j01" path="res://assets/Water Background color.png" id="3_15mv3"]
 [ext_resource type="Texture2D" uid="uid://rc55p1b1g7tu" path="res://assets/world_tileset.png" id="4_e3sih"]
 [ext_resource type="PackedScene" uid="uid://dagevkvpe8ygy" path="res://scenes/player.tscn" id="5_2y5yt"]
 [ext_resource type="PackedScene" uid="uid://b28kc3lmq8o6g" path="res://scenes/canvas_layer.tscn" id="6_2os1m"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ipu61"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o21ul"]
 texture = ExtResource("2_pa8r4")
 0:0/0 = 0
 1:0/0 = 0
@@ -703,7 +703,7 @@ texture = ExtResource("2_pa8r4")
 34:23/0 = 0
 35:23/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygxny"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y368g"]
 texture = ExtResource("3_15mv3")
 0:0/0 = 0
 1:0/0 = 0
@@ -723,10 +723,10 @@ texture = ExtResource("3_15mv3")
 3:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_d2op2"]
-sources/0 = SubResource("TileSetAtlasSource_ipu61")
-sources/1 = SubResource("TileSetAtlasSource_ygxny")
+sources/0 = SubResource("TileSetAtlasSource_o21ul")
+sources/1 = SubResource("TileSetAtlasSource_y368g")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rdsr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l5ivm"]
 texture = ExtResource("4_e3sih")
 0:0/0 = 0
 1:0/0 = 0
@@ -870,7 +870,7 @@ custom_data_layer_1/name = "solid"
 custom_data_layer_1/type = 1
 custom_data_layer_2/name = "tracker"
 custom_data_layer_2/type = 1
-sources/0 = SubResource("TileSetAtlasSource_0rdsr")
+sources/0 = SubResource("TileSetAtlasSource_l5ivm")
 
 [node name="Level1" type="Node2D" unique_id=1289898384]
 script = ExtResource("1_fcfvj")
@@ -880,7 +880,7 @@ tile_map_data = PackedByteArray("AAAAAPr/AAAIAAYAAAAAAPn/AAAIAAYAAAD6////AAAIAAY
 tile_set = SubResource("TileSet_d2op2")
 
 [node name="map" type="TileMapLayer" parent="." unique_id=681865973]
-tile_map_data = PackedByteArray("AAD//wAAAAAHAAMAAAAAAAEAAAAHAAMAAAAAAP//AAAHAAMAAAACAAEAAAAGAAEAAAADAAEAAAAGAAEAAAAEAAEAAAAGAAEAAAAFAAAAAAAGAAEAAAACAP//AAAGAAEAAAADAP//AAAGAAEAAAAEAP//AAAGAAEAAAABAPv/AAAGAAEAAAABAPz/AAAGAAEAAAABAP3/AAAGAAEAAAABAP7/AAAGAAEAAAAAAPv/AAAGAAEAAAD///v/AAAGAAEAAAD///z/AAAGAAEAAAD///3/AAAGAAEAAAD///7/AAAGAAEAAAD+////AAAGAAEAAAD9////AAAGAAEAAAD8////AAAGAAEAAAD7////AAAGAAEAAAD7/wAAAAAGAAEAAAD7/wEAAAAGAAEAAAD8/wEAAAAGAAEAAAD9/wEAAAAGAAEAAAD//wMAAAAGAAEAAAD//wQAAAAGAAEAAAD//wUAAAAGAAEAAAAAAAUAAAAGAAEAAAABAAQAAAAGAAEAAAABAAMAAAAGAAEAAAABAAIAAAAGAAEAAAABAAUAAAAGAAEAAAAAAAQAAAADAAIAAAD8/wAAAAADAAIAAAAEAAAAAAADAAIAAAAAAPz/AAADAAIAAAABAAAAAAAHAAMAAAD//wIAAAAGAAEAAAD+/wEAAAAGAAEAAAACAAIAAAAGAAEAAAD+/wIAAAAGAAEAAAD+//7/AAAGAAEAAAACAP7/AAAGAAEAAAAFAP//AAAGAAEAAAAFAAEAAAAGAAEAAAA=")
+tile_map_data = PackedByteArray("AAD//wAAAAAHAAMAAAAAAAEAAAAHAAMAAAAAAP//AAAHAAMAAAACAAEAAAAGAAEAAAADAAEAAAAGAAEAAAAEAAEAAAAGAAEAAAAFAAAAAAAGAAEAAAACAP//AAAGAAEAAAADAP//AAAGAAEAAAAEAP//AAAGAAEAAAABAPv/AAAGAAEAAAABAPz/AAAGAAEAAAABAP3/AAAGAAEAAAABAP7/AAAGAAEAAAAAAPv/AAAGAAEAAAD///v/AAAGAAEAAAD///z/AAAGAAEAAAD///3/AAAGAAEAAAD///7/AAAGAAEAAAD+////AAAGAAEAAAD9////AAAGAAEAAAD8////AAAGAAEAAAD7////AAAGAAEAAAD7/wAAAAAGAAEAAAD7/wEAAAAGAAEAAAD8/wEAAAAGAAEAAAD9/wEAAAAGAAEAAAD//wMAAAAGAAEAAAD//wQAAAAGAAEAAAD//wUAAAAGAAEAAAAAAAUAAAAGAAEAAAABAAQAAAAGAAEAAAABAAMAAAAGAAEAAAABAAIAAAAGAAEAAAABAAUAAAAGAAEAAAAAAAQAAAADAAIAAAD8/wAAAAADAAIAAAAEAAAAAAADAAIAAAAAAPz/AAADAAIAAAD//wIAAAAGAAEAAAD+/wEAAAAGAAEAAAACAAIAAAAGAAEAAAD+/wIAAAAGAAEAAAD+//7/AAAGAAEAAAACAP7/AAAGAAEAAAAFAP//AAAGAAEAAAAFAAEAAAAGAAEAAAABAAAAAAAHAAMAAAA=")
 tile_set = SubResource("TileSet_0rdsr")
 
 [node name="Player" parent="." unique_id=1145481180 node_paths=PackedStringArray("boxLayer") instance=ExtResource("5_2y5yt")]

@@ -8,12 +8,7 @@
 layout_mode = 3
 anchors_preset = 0
 
-[node name="MenuBar" type="MenuBar" parent="Control" unique_id=699113647]
-layout_mode = 0
-offset_right = 453.0
-offset_bottom = 290.0
-
-[node name="Button" type="Button" parent="Control/MenuBar" unique_id=698138413]
+[node name="Button" type="Button" parent="Control" unique_id=698138413]
 layout_mode = 0
 offset_left = -117.0
 offset_top = 151.0

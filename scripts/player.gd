@@ -60,6 +60,9 @@ func move_one_tile(direction:Vector2i):
 		if is_solid(beyond):
 			return
 		
+		if is_tracker(current_cell):
+			print("i am on the tracker")
+		
 		var landed_on_tracker := is_tracker(beyond)
 		
 		var src: = boxLayer.get_cell_source_id(target_cell)
@@ -75,6 +78,7 @@ func move_one_tile(direction:Vector2i):
 			if tracker_left() == 0:
 				level_completed.emit()
 		
+
 		
 		global_position +=motion
 		return

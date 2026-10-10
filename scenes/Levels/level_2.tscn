@@ -1,13 +1,13 @@
 [gd_scene format=4 uid="uid://b84itkw8g8yat"]
 
 [ext_resource type="Texture2D" uid="uid://b2lylnhtvj3da" path="res://assets/Tilemap_color3.png" id="1_3s172"]
-[ext_resource type="Script" uid="uid://c1at3lwx8562" path="res://scenes/main_game.gd" id="1_yye74"]
+[ext_resource type="Script" uid="uid://c1at3lwx8562" path="res://scripts/main_game.gd" id="1_yye74"]
 [ext_resource type="Texture2D" uid="uid://dq2hsmjsm6j01" path="res://assets/Water Background color.png" id="2_yye74"]
 [ext_resource type="Texture2D" uid="uid://rc55p1b1g7tu" path="res://assets/world_tileset.png" id="3_v740s"]
 [ext_resource type="PackedScene" uid="uid://dagevkvpe8ygy" path="res://scenes/player.tscn" id="4_048ga"]
 [ext_resource type="PackedScene" uid="uid://b28kc3lmq8o6g" path="res://scenes/canvas_layer.tscn" id="5_2fma4"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a0dj8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yye74"]
 texture = ExtResource("1_3s172")
 0:0/0 = 0
 1:0/0 = 0
@@ -703,7 +703,7 @@ texture = ExtResource("1_3s172")
 34:23/0 = 0
 35:23/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtx2w"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v740s"]
 texture = ExtResource("2_yye74")
 0:0/0 = 0
 1:0/0 = 0
@@ -723,10 +723,10 @@ texture = ExtResource("2_yye74")
 3:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_1a52t"]
-sources/0 = SubResource("TileSetAtlasSource_a0dj8")
-sources/1 = SubResource("TileSetAtlasSource_gtx2w")
+sources/0 = SubResource("TileSetAtlasSource_yye74")
+sources/1 = SubResource("TileSetAtlasSource_v740s")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wxjxf"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_048ga"]
 texture = ExtResource("3_v740s")
 0:0/0 = 0
 1:0/0 = 0
@@ -870,7 +870,7 @@ custom_data_layer_1/name = "solid"
 custom_data_layer_1/type = 1
 custom_data_layer_2/name = "tracker"
 custom_data_layer_2/type = 1
-sources/0 = SubResource("TileSetAtlasSource_wxjxf")
+sources/0 = SubResource("TileSetAtlasSource_048ga")
 
 [node name="Level2" type="Node2D" unique_id=2029663983]
 script = ExtResource("1_yye74")
