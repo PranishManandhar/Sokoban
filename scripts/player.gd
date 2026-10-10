@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
-signal is_occupied
 signal level_completed
 
 var tile_size:= 16
+var tracker_src: int
+var tracker_atlas: Vector2i
+
 @export var boxLayer: TileMapLayer
 @onready var sprite :=  $Sprite2D
 
+var tracker_position_array:= []
 
 func is_movable(cell:Vector2i)->bool:
 	var data = boxLayer.get_cell_tile_data(cell)
@@ -20,7 +23,10 @@ func is_tracker(cell:Vector2i)->bool:
 	var data = boxLayer.get_cell_tile_data(cell)
 	return data != null and data.get_custom_data("tracker") == true
 
-
+func restore_trackers():
+	for cell in tracker_position_array:
+		if boxLayer.get_cell_source_id(cell) == -1:
+			boxLayer.set_cell(cell,tracker_src,tracker_atlas)
 
 func get_player_cell()->Vector2i:
 	return boxLayer.local_to_map(boxLayer.to_local(sprite.global_position))
@@ -32,8 +38,22 @@ func tracker_left():
 			count+=1
 	return count
 
-func _physics_process(delta: float) -> void:
+func get_tracker_position() -> Array[Vector2i]:
+	var result: Array[Vector2i] = []
+	for cell in boxLayer.get_used_cells():
+		if is_tracker(cell):
+			result.append(cell)
+	return result
 
+func _ready() -> void:
+	tracker_position_array = get_tracker_position()
+	if tracker_position_array.size() > 0:
+		var first :Vector2i= tracker_position_array[0]
+		tracker_src = boxLayer.get_cell_source_id(first)
+		tracker_atlas = boxLayer.get_cell_atlas_coords(first)
+
+func _physics_process(delta: float) -> void:
+	
 	var direction:=Vector2i.ZERO
 	
 	if Input.is_action_just_pressed("left"):
@@ -60,7 +80,7 @@ func move_one_tile(direction:Vector2i):
 		if is_solid(beyond):
 			return
 		
-		if is_tracker(current_cell):
+		if is_tracker(target_cell):
 			print("i am on the tracker")
 		
 		var landed_on_tracker := is_tracker(beyond)
@@ -70,11 +90,12 @@ func move_one_tile(direction:Vector2i):
 		boxLayer.erase_cell(target_cell)
 		boxLayer.set_cell(beyond,src,atlas)
 		
+		restore_trackers()
+		
 		if is_solid(target_cell):
 			return
 		
 		if landed_on_tracker:
-			is_occupied.emit()
 			if tracker_left() == 0:
 				level_completed.emit()
 		

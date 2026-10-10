@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://hfosftbmfc06"]
+
+[ext_resource type="Script" uid="uid://bsycakk4wn68k" path="res://scripts/level_selector.gd" id="1_aeu7d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2bpuc"]
+font_size = 30
+
+[node name="Level Selector" type="Node2D" unique_id=1235101101]
+script = ExtResource("1_aeu7d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=513011989]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1173474334]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=93735377]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="title" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer" unique_id=1592963991]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 11
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/title" unique_id=841151148]
+layout_mode = 2
+text = "Level Selector"
+label_settings = SubResource("LabelSettings_2bpuc")
+horizontal_alignment = 1
+
+[node name="Level Selector" type="GridContainer" parent="CanvasLayer/Control/VBoxContainer" unique_id=1170654638]
+layout_mode = 2
+columns = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer/Level Selector" unique_id=1530821597]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 38
+
+[node name="Level 1" type="Button" parent="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer" unique_id=2074970694]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "1"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer/Level Selector" unique_id=1994818669]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 38
+
+[node name="Level 2" type="Button" parent="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer2" unique_id=1700752789]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "2"
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer/Level Selector" unique_id=1342799044]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 38
+
+[node name="Level 3" type="Button" parent="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer3" unique_id=1765086328]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "3"
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer/Level Selector" unique_id=1721412381]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 38
+
+[node name="Level 4" type="Button" parent="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer4" unique_id=1475293938]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "4"
+
+[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer/Level Selector" unique_id=1830884710]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 38
+
+[node name="Level 5" type="Button" parent="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer5" unique_id=1554026157]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer2/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer3/Level 3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer4/Level 4" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer5/Level 5" to="." method="_on_level_1_pressed"]

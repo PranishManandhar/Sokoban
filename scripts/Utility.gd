@@ -1,2 +1,0 @@
-class_name sokoban_utility
-extends Node
