@@ -1,9 +1,43 @@
 [gd_scene format=3 uid="uid://hfosftbmfc06"]
 
 [ext_resource type="Script" uid="uid://bsycakk4wn68k" path="res://scripts/level_selector.gd" id="1_aeu7d"]
+[ext_resource type="StyleBox" uid="uid://djk3qggeepj8g" path="res://Button THeme/generalBTNtheme .tres" id="2_gkmvm"]
+[ext_resource type="StyleBox" uid="uid://c58f0jbfkj0s6" path="res://Button THeme/btnHoverandpressed.tres" id="3_rqfkl"]
+[ext_resource type="Texture2D" uid="uid://btrylvc2xfbs6" path="res://assets/back.png" id="3_tr5s6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2bpuc"]
 font_size = 30
+
+[sub_resource type="Theme" id="Theme_aeu7d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rqfkl"]
+bg_color = Color(0.8806972, 0, 0.144429, 1)
+border_width_left = 9
+border_width_top = 9
+border_width_right = 9
+border_width_bottom = 9
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+expand_margin_left = 9.0
+expand_margin_top = 6.0
+expand_margin_right = 14.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o21ul"]
+bg_color = Color(1, 0.64705884, 0, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
 
 [node name="Level Selector" type="Node2D" unique_id=1235101101]
 script = ExtResource("1_aeu7d")
@@ -18,80 +52,110 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=93735377]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-
-[node name="title" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer" unique_id=1592963991]
-layout_mode = 2
+[node name="title" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1592963991]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 42.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_top = 11
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/title" unique_id=841151148]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/title" unique_id=71489629]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/title/HBoxContainer" unique_id=841151148]
 layout_mode = 2
 text = "Level Selector"
 label_settings = SubResource("LabelSettings_2bpuc")
 horizontal_alignment = 1
 
-[node name="Level Selector" type="GridContainer" parent="CanvasLayer/Control/VBoxContainer" unique_id=1170654638]
+[node name="Button" type="Button" parent="CanvasLayer/Control/title/HBoxContainer" unique_id=780461087]
 layout_mode = 2
-columns = 4
+theme = SubResource("Theme_aeu7d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rqfkl")
+text = "close"
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer/Level Selector" unique_id=1530821597]
-layout_mode = 2
-theme_override_constants/margin_left = 36
-theme_override_constants/margin_top = 38
+[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=1639297026]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.14197531
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 162.0
+offset_top = 64.0
+offset_right = -150.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o21ul")
 
-[node name="Level 1" type="Button" parent="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer" unique_id=2074970694]
+[node name="Level Selector" type="GridContainer" parent="CanvasLayer/Control/Panel" unique_id=1170654638]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -144.0
+offset_right = 347.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 50
+columns = 5
+
+[node name="Level 1" type="Button" parent="CanvasLayer/Control/Panel/Level Selector" unique_id=2074970694]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_gkmvm")
+theme_override_styles/pressed = ExtResource("3_rqfkl")
+theme_override_styles/hover = ExtResource("2_gkmvm")
 text = "1"
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer/Level Selector" unique_id=1994818669]
-layout_mode = 2
-theme_override_constants/margin_left = 36
-theme_override_constants/margin_top = 38
-
-[node name="Level 2" type="Button" parent="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer2" unique_id=1700752789]
+[node name="Level 2" type="Button" parent="CanvasLayer/Control/Panel/Level Selector" unique_id=1700752789]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_gkmvm")
+theme_override_styles/pressed = ExtResource("3_rqfkl")
+theme_override_styles/hover = ExtResource("3_rqfkl")
 text = "2"
 
-[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer/Level Selector" unique_id=1342799044]
-layout_mode = 2
-theme_override_constants/margin_left = 36
-theme_override_constants/margin_top = 38
-
-[node name="Level 3" type="Button" parent="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer3" unique_id=1765086328]
+[node name="Level 3" type="Button" parent="CanvasLayer/Control/Panel/Level Selector" unique_id=1765086328]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_gkmvm")
+theme_override_styles/pressed = ExtResource("3_rqfkl")
+theme_override_styles/hover = ExtResource("3_rqfkl")
 text = "3"
 
-[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer/Level Selector" unique_id=1721412381]
-layout_mode = 2
-theme_override_constants/margin_left = 36
-theme_override_constants/margin_top = 38
-
-[node name="Level 4" type="Button" parent="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer4" unique_id=1475293938]
+[node name="Level 4" type="Button" parent="CanvasLayer/Control/Panel/Level Selector" unique_id=1475293938]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_gkmvm")
+theme_override_styles/pressed = ExtResource("3_rqfkl")
+theme_override_styles/hover = ExtResource("3_rqfkl")
 text = "4"
 
-[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer/Level Selector" unique_id=1830884710]
-layout_mode = 2
-theme_override_constants/margin_left = 36
-theme_override_constants/margin_top = 38
-
-[node name="Level 5" type="Button" parent="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer5" unique_id=1554026157]
+[node name="Level 5" type="Button" parent="CanvasLayer/Control/Panel/Level Selector" unique_id=1554026157]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_gkmvm")
+theme_override_styles/pressed = ExtResource("3_rqfkl")
+theme_override_styles/hover = ExtResource("3_rqfkl")
 text = "5"
 
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer/Level 1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer2/Level 2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer3/Level 3" to="." method="_on_level_3_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer4/Level 4" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Level Selector/MarginContainer5/Level 5" to="." method="_on_level_1_pressed"]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2019255808]
+offset_right = 1178.0
+offset_bottom = 677.0
+texture = ExtResource("3_tr5s6")
+
+[connection signal="pressed" from="CanvasLayer/Control/title/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/Level Selector/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/Level Selector/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/Level Selector/Level 3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/Level Selector/Level 4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/Level Selector/Level 5" to="." method="_on_level_1_pressed"]

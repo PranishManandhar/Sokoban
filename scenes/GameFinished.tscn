@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bxxo44ia61put"]
+
+[ext_resource type="Script" uid="uid://2g2r6d225u1v" path="res://scripts/game_finished.gd" id="1_506hi"]
+[ext_resource type="StyleBox" uid="uid://djk3qggeepj8g" path="res://Button THeme/generalBTNtheme .tres" id="1_m1sml"]
+[ext_resource type="StyleBox" uid="uid://c58f0jbfkj0s6" path="res://Button THeme/btnHoverandpressed.tres" id="2_m4h2l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcwox"]
+bg_color = Color(1, 0.64705884, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+shadow_size = 20
+
+[node name="end_screen" type="CanvasLayer" unique_id=1100914282]
+script = ExtResource("1_506hi")
+
+[node name="Control" type="Control" parent="." unique_id=668508894]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1308784761]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.5
+offset_top = -121.0
+offset_right = 251.5
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jcwox")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel" unique_id=24022861]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 17
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = 17
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MarginContainer" unique_id=1885677533]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel/MarginContainer/VBoxContainer" unique_id=796091938]
+layout_mode = 2
+theme_override_constants/margin_top = 58
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel/MarginContainer/VBoxContainer/MarginContainer" unique_id=2064195267]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=30][b]You Win[/b][/font_size]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/Panel/MarginContainer/VBoxContainer" unique_id=1048361455]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/MarginContainer/VBoxContainer/MarginContainer2" unique_id=688430107]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 40
+
+[node name="playagains" type="Button" parent="Control/Panel/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=115922571]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("1_m1sml")
+theme_override_styles/pressed = ExtResource("2_m4h2l")
+theme_override_styles/hover = ExtResource("2_m4h2l")
+text = "Play Again"
+
+[node name="Main Menu" type="Button" parent="Control/Panel/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1125429944]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("1_m1sml")
+theme_override_styles/pressed = ExtResource("2_m4h2l")
+theme_override_styles/hover = ExtResource("2_m4h2l")
+text = "Main Menu"
+
+[connection signal="pressed" from="Control/Panel/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/playagains" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Panel/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/playagains" to="." method="_on_playagains_pressed"]
+[connection signal="pressed" from="Control/Panel/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

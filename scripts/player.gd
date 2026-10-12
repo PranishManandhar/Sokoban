@@ -1,3 +1,4 @@
+class_name player
 extends CharacterBody2D
 
 signal level_completed
@@ -64,11 +65,14 @@ func _physics_process(delta: float) -> void:
 		direction = Vector2i.UP
 	if Input.is_action_just_pressed("down"):
 		direction = Vector2i.DOWN
+	if Input.is_action_pressed("back"):
+		get_tree().change_scene_to_packed(load("res://scenes/level_selector.tscn"))
+	if Input.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
 	
 	if direction != Vector2i.ZERO:
 		move_one_tile(direction)
 		
-
 
 func move_one_tile(direction:Vector2i):
 	var motion:= Vector2(direction) * tile_size
@@ -79,9 +83,6 @@ func move_one_tile(direction:Vector2i):
 		var beyond: = target_cell + direction
 		if is_solid(beyond):
 			return
-		
-		if is_tracker(target_cell):
-			print("i am on the tracker")
 		
 		var landed_on_tracker := is_tracker(beyond)
 		
@@ -98,9 +99,8 @@ func move_one_tile(direction:Vector2i):
 		if landed_on_tracker:
 			if tracker_left() == 0:
 				level_completed.emit()
-		
-
-		
+				set_physics_process(false)
+				
 		global_position +=motion
 		return
 		
